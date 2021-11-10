@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JS Dice Game</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="style1.css" />
+  </head>
+  <body>
+    <script>
+      var sum = 0;
+      function Validate() {
+
+            var diceRollOne = Math.floor(Math.random() * 6 + 1);
+            var dice1 = document.querySelector('.dice1');
+            // document.querySelector('.dice1').style.position="relative";
+            // document.querySelector('.dice1').style.marginLeft = "160px";
+            dice1.src = `https://www.random.org/dice/dice${diceRollOne}.png`;
+
+            sum += diceRollOne;
+
+            document.getElementById("total").innerHTML = `Total: ${sum}`;
+
+            if(sum<=50){
+
+            }
+            else{
+              alert("Game Over!!");
+              document.getElementById("total").innerHTML = `Total: ${0}`;
+              sum = 0;
+            }
+
+      }
+    </script>
+    <div class="container">
+      <div class="card">
+        <div class="card-body text-center">
+          <h2 class="display-4 text-center mb-5">Dice Roll Game</h2>
+          <img
+            src="img/dice1.png"
+            alt=""
+            class="dice1"
+            draggable="false"
+            style="align-items: right"
+            
+          />
+          <p class="text-center pt-3 score">Roll the dice!</p>
+
+          <button
+            onClick="Validate()"
+            class="btn btn-outline-primary roll_btn"
+            id="roll_btn"
+          >
+            Roll Dice
+          </button>
+          <div id="total"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
